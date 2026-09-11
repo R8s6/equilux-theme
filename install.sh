@@ -115,6 +115,9 @@ install() {
   mkdir -p                                                                      "$THEME_DIR/xfwm4"
   cp -r "$SRC_DIR/xfwm4/"{*.svg,themerc}                                        "$THEME_DIR/xfwm4"
   cp -r "$SRC_DIR/xfwm4/assets${ELSE_LIGHT:-}"                                  "$THEME_DIR/xfwm4/assets"
+  if [[ "$size" == '-compact' ]]; then
+    cp -r "$SRC_DIR/xfwm4/assets-compact/."                                     "$THEME_DIR/xfwm4/assets"
+  fi
 }
 
 # Bakup and install files related to GDM theme
