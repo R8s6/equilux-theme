@@ -42,6 +42,10 @@ install() {
   cp -r "$REPO_DIR/COPYING" "$THEME_DIR"
   cp -r "$SRC_DIR/index-dark$size.theme" "$THEME_DIR/index.theme"
 
+  mkdir -p "$THEME_DIR/chrome"
+  cp -r "$SRC_DIR/chrome/chrome-theme-dark.crx" "$THEME_DIR/chrome/chrome-theme.crx"
+  cp -r "$SRC_DIR/chrome/chrome-scrollbar-dark.crx" "$THEME_DIR/chrome/chrome-scrollbar.crx"
+
   cp -r "$SRC_DIR/gtk/assets" "$THEME_DIR/gtk-assets"
   mkdir -p "$THEME_DIR/gtk-3.0"
   ln -s ../gtk-assets "$THEME_DIR/gtk-3.0/assets"

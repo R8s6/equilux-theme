@@ -18,3 +18,7 @@ echo "== Generating GTK+ 3 CSS..."
 for size in "${_SIZE_VARIANTS[@]}"; do
   sassc "${SASSC_OPT[@]}" "src/gtk/3.0/gtk-dark$size."{scss,css}
 done
+
+echo "== Generating Chromium scrollbar CSS..."
+sassc "${SASSC_OPT[@]}" src/chrome/chrome-scrollbar/scrollbars.{scss,css}
+sassc "${SASSC_OPT[@]}" src/chrome/chrome-scrollbar-dark/scrollbars.{scss,css}
