@@ -1,75 +1,58 @@
-# Equilux Theme
+# Equilux4K Theme for Xfce
 
 ![Screenshot](screenshot.png)
 
-The Equilux Theme provides a couple of full-dark, neutral-gray theme for GNOME/GTK+ based desktop environments. It supports GTK+ 3, GTK+ 2, GNOME Shell, Budgie, MATE, Unity, LightDM, GDM, Chrome theme, etc.
+The Equilux4K provides a full-dark, neutral-gray theme for Xfce in 4K.
 
-It is based on the [Materia Theme](https://github.com/nana-4/materia-theme). For detailed features and documentation, please, check upstream.
+Supports:
+- Xfce
+- LightDM and GDM
+- Chromium
+
+It is based on the [Equilux Theme](https://github.com/ddnexus/equilux-theme). Users looking for Gnome, Budgie, MATE or othe GTK desktop environment please feel free to try out the original Equilux Theme instead. 
 
 ### Motivation
 
-The Equilux themes provide a neutral dark-balanced color-scheme not designed to be __fancy__, but to be __useful__ for a few specific goals.
+__4K (UHD) Support__: Visual elements are optimized for 4K resolution. 2x Window Scaling recommended.
+
+As with the original Equilux theme, it also inherits a neutral dark-balanced colour-scheme not designed to be __fancy__, but to be __useful__ for a few specific goals.
 
 1. __Minimize eye strain__: when you pass many hours in front of the screen or you are hyper-sensitive to light, saturation and contrast, your eyes will benefit from a dull UI
 
-2. __Avoid disrupting your circadian rhythms__: a neutral color-cast-free UI helps your body to produce enough melatonin at night time and sleep better, working nicely with software like `f.lux`, `redshift`, `NightLight`, ...
+2. __Avoid disrupting your circadian rhythms__: a neutral colour-cast-free UI helps your body to produce enough melatonin at night time and sleep better, working nicely with software like `f.lux`, `redshift`, `NightLight`, ...
 
-3. __Professional use in image editing, graphic design, 3D rendering__: in that fields any color cast or excessive contrast, brightness or darkness introduced by the UI would affect the overall perception of the color and balance of the images
+3. __Professional use in image editing, graphic design, 3D rendering__: in that fields any colour cast or excessive contrast, brightness or darkness introduced by the UI would affect the overall perception of the colour and balance of the images
 
 4. __You may just like it__: even if the style is not the main goal, many people find that its very clean and minimalistic UI looks cool and professional
 
 
 ### Technical Focus
 
-The Equilux Theme sticks to the upstream theme as much as possible, and is exclusively focused on the following points:
-
-- Total removal of any color cast from the background elements (neutral base)
+- Optimized for 4K resolution
+- Total removal of any colour cast from the background elements (neutral base)
 - Use of a neutral base for all the UI elements, with exception of a few button/boxes
 - Maximum reduction of contrast/saturation
 - Medium overall brightness/darkness of the UI
 
-### Changes from the Upstream Theme
+### Changes from the Equilux Theme
 
-- The installer script installs only the Equilux variants
-- Addition of Ubuntu font family and removal of the "M+ c1" font.
-- A few minor cosmetic fixes
-- Minimal changes in the color assignations in order to make the Equilux palette work OK with the theme.
+- Title bar and its button icons are optimized for 4K
+- Font choices are completely by the users
 
-## Theme Installation/Uninstallation
+## Installation
 
-**Installation**: Download the latest `equilux-theme-*.tar.xz` version listed in the __Files__ tab [here](https://www.opendesktop.org/p/1182169/), unzip it and move the Equilux* dirs to `/usr/share/themes`. As an alternative you can download the source of the latest release [here](https://github.com/ddnexus/equilux-theme/releases) and run the `install.sh` script as privileged user.
+**Arch**: `yay -S `
 
-**Uninstallation**: Delete the installed directories: `sudo rm -rf /usr/share/themes/Equilux{,-compact}`
+**General**: Download the latest `equilux-theme-*.tar.xz` version listed in the __Files__ tab [here](https://www.opendesktop.org/p/1182169/), unzip it and move the Equilux* dirs to `/usr/share/themes`. As an alternative you can download the source of the latest release [here](https://github.com/ddnexus/equilux-theme/releases) and run the `install.sh` script as privileged user.
 
-## Font Customization
+## Uninstallation 
 
-After you install the themes, you may want to customize the fonts by editing the `font-family` CSS rule inside the installed CSS file(s) `/usr/share/themes/Equilux{,-compact}/gnome-shell/gnome-shell.css`.
+Delete the installed directories: `sudo rm -rf /usr/share/themes/Equilux{,-compact}`
 
-Here is the current line that affects the fonts:
-
-```
-font-family: Roboto, Ubuntu, Cantarell, Sans-Serif;
-```
-
-You can edit it manually with any text-editor, or you can run a simple command (courtesy of nana-4). Just remember to edit the "your-preferred-font" string :).
-
-For example: prepending `your-preferred-font`:
-
-```
-sudo sed -i 's/Roboto/your-preferred-font, Roboto/g' /usr/share/themes/Equilux{,-compact}/gnome-shell/gnome-shell.css
-```
-
-or switching priority between `Roboto` and `Ubuntu`:
-
-```
-sudo sed -i 's/Roboto, Ubuntu/Ubuntu, Roboto/g' /usr/share/themes/Equilux{,-compact}/gnome-shell/gnome-shell.css
-```
-
-or change it as you prefer.
 
 ## GDM Theme Installation/Uninstallation
 
-See the the upstream instruction [here](https://github.com/nana-4/materia-theme/wiki/GDM-Theme).
+See the the upstream instruction [here](https://github.com/nana-4/materia-theme/blob/master/INSTALL_GDM_THEME.md).
 
 ## Related Items
 
@@ -81,6 +64,8 @@ Seamless textures from various sources and authors, converted to low contrast/br
 
 ### Icons
 
+- [elementary-xfce](https://github.com/shimmerproject/elementary-xfce): This is an icon-theme maintained with Xfce in mind, but it should work on other desktops like Gnome3 as well.
+  
 - [Circle Numix Icons](https://github.com/numixproject/numix-icon-theme-circle): a circle themed icon set well maintained and not too bright (if you use Numix Folders below to tame the folder colors)
 
 - [Numix Folders](https://github.com/numixproject/numix-folders): Customization script to change the colors and style of the numix folders (otherwise too bright and saturated). Recommended settings: Style: 6, Primary color: #9c9c9c, Secondary color; #9c9c9c, Symbol: #656565
@@ -91,15 +76,6 @@ Seamless textures from various sources and authors, converted to low contrast/br
 
 - [Papirus Folders Script](https://github.com/PapirusDevelopmentTeam/papirus-folders): Customization script to change the colors of the papirus folders. Recommended command: `papirus-folders -C grey --theme Papirus-Dark`
 
-### GNOME Extensions
-
-- [Darker Overview](https://extensions.gnome.org/extension/1177/darker-overview/): Customize the darkness of the background in the Overview. It can also remove the ugly vignette effect
-
-- [Desaturate All](https://extensions.gnome.org/extension/1102/desaturate-all/): Desature the entire gnome workspace (I hacked a copy to have 4 deaturation levels instead of all-or-none: ask if interested)
-
-- [AppMenu Regular Icons](https://extensions.gnome.org/extension/970/appmenu-regular-icons/): Disables Symbolic Icons in the app menu. In the mostly grayscale UI, a small colored icon is useful to quickly identify the app you are in. Besides it normalizes the icons that otherwise would be grey or colored with no particular consistence.
-
-- [Background Logo](https://extensions.gnome.org/extension/889/background-logo/): Overlay an icon/pict in the bottom right corner. A bit buggy and useless :) but a nice touch.
 
 ### App Themes and Settings
 
@@ -129,8 +105,8 @@ Please, notice that the `*-dev` branches are getting rebased on top of master at
 
 ## License
 
-The Equilux Theme is distributed under the terms of the GNU General Public License, version 2 or later. See the [`COPYING`](COPYING) file for details.
+This Theme is distributed under the terms of the GNU General Public License, version 2 or later. See the [`COPYING`](COPYING) file for details.
 
 ## Credits
 
-- All credits go to the [Materia Theme](https://github.com/nana-4/materia-theme), its author and contributors.
+- All credits go to the [Equilux Theme](https://github.com/ddnexus/equilux-theme) and [Materia Theme](https://github.com/nana-4/materia-theme), their authors and contributors.
