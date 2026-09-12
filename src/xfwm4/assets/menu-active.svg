@@ -3,6 +3,6 @@
   <rect width="64" height="1" fill="#FFFFFF" fill-opacity="0.1"/>
   <g transform="scale(2)" fill="#FFFFFF" opacity="0.7">
     <circle cx="16" cy="16" r="12" opacity="0"/>
-    <circle cx="16" cy="16" r="2"/>
+    <path d="M13 13H19M13 16H19M13 19H19" fill="none" stroke="#FFFFFF" stroke-width="1"/>
   </g>
 </svg>
