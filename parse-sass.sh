@@ -8,15 +8,17 @@ fi
 
 SASSC_OPT=('-M' '-t' 'expanded')
 _SIZE_VARIANTS=('' '-compact')
+GNOME_SHELL_VERSION='3.30'
 
 if [[ -n "${SIZE_VARIANTS:-}" ]]; then
   IFS=', ' read -r -a _SIZE_VARIANTS <<< "$SIZE_VARIANTS"
 fi
 
-echo "== Generating GTK+ 3 CSS..."
+echo "== Generating GTK+ 3 and GNOME Shell CSS..."
 
 for size in "${_SIZE_VARIANTS[@]}"; do
   sassc "${SASSC_OPT[@]}" "src/gtk/3.0/gtk-dark$size."{scss,css}
+  sassc "${SASSC_OPT[@]}" "src/gnome-shell/$GNOME_SHELL_VERSION/gnome-shell-dark$size."{scss,css}
 done
 
 echo "== Generating Chromium scrollbar CSS..."

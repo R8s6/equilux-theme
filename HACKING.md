@@ -1,6 +1,6 @@
 # Hacking
 
-This fork is intentionally limited to Xfce 4.
+This fork is focused on Xfce 4. Chromium assets are retained for browser integration, and GNOME Shell 3.30 assets are retained only as a GDM theme payload. GNOME Shell as a desktop environment is not a supported target.
 
 ## GTK+ 3
 
@@ -25,6 +25,18 @@ GTK PNG assets are generated from `src/gtk/assets.svg`. Rebuild them with:
 ```
 
 This requires Inkscape and `optipng`.
+
+## GDM payload
+
+The retained GDM payload uses the latest GNOME Shell sources from the original Equilux tree, version 3.30:
+
+- `src/_sass/gnome-shell/`
+- `src/gnome-shell/3.30/`
+- `src/gnome-shell/assets-dark/`
+
+Only the Equilux dark standard and compact GNOME Shell CSS variants are kept. `./parse-sass.sh` rebuilds them together with the GTK CSS.
+
+`./install.sh --size standard --gdm` installs the standard theme and compiles its GNOME Shell resources into the system GDM theme. Back up and restore the system GNOME Shell resource when testing GDM changes.
 
 ## Xfwm4
 

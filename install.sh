@@ -7,6 +7,7 @@ SRC_DIR="$REPO_DIR/src"
 DEST_DIR="/usr/share/themes"
 THEME_NAME="Equilux"
 SIZE_VARIANTS=('' '-compact')
+GNOME_SHELL_VERSION='3.30'
 
 usage() {
   cat << EOF
@@ -16,6 +17,7 @@ OPTIONS:
   -d, --dest DIR       Specify theme destination directory (Default: $DEST_DIR)
   -n, --name NAME      Specify theme name (Default: $THEME_NAME)
   -s, --size VARIANT   Specify theme size variant [standard|compact] (Default: All variants)
+  -g, --gdm            Install the selected theme as the GDM theme
   -h, --help           Show this help
 
 INSTALLATION EXAMPLES:
@@ -25,6 +27,8 @@ Install standard variant only
   $0 --dest ~/.themes --size standard
 Install compact variant only
   $0 --dest ~/.themes --size compact
+Install the standard variant and apply it to GDM
+  $0 --size standard --gdm
 EOF
 }
 
@@ -51,12 +55,43 @@ install() {
   ln -s ../gtk-assets "$THEME_DIR/gtk-3.0/assets"
   cp -r "$SRC_DIR/gtk/3.0/gtk-dark$size.css" "$THEME_DIR/gtk-3.0/gtk.css"
 
+  mkdir -p "$THEME_DIR/gnome-shell"
+  cp -r "$SRC_DIR/gnome-shell/"{*.svg,extensions,noise-texture.png,pad-osd.css} "$THEME_DIR/gnome-shell"
+  cp -r "$SRC_DIR/gnome-shell/gnome-shell-theme.gresource.xml" "$THEME_DIR/gnome-shell"
+  cp -r "$SRC_DIR/gnome-shell/assets-dark" "$THEME_DIR/gnome-shell/assets"
+  cp -r "$SRC_DIR/gnome-shell/$GNOME_SHELL_VERSION/gnome-shell-dark$size.css" "$THEME_DIR/gnome-shell/gnome-shell.css"
+
   mkdir -p "$THEME_DIR/xfwm4"
   cp -r "$SRC_DIR/xfwm4/"{*.svg,themerc} "$THEME_DIR/xfwm4"
   cp -r "$SRC_DIR/xfwm4/assets" "$THEME_DIR/xfwm4/assets"
   if [[ "$size" == '-compact' ]]; then
     cp -r "$SRC_DIR/xfwm4/assets-compact/." "$THEME_DIR/xfwm4/assets"
   fi
+}
+
+install_gdm() {
+  local dest="$1"
+  local name="$2"
+  local size="$3"
+  local THEME_DIR="$dest/$name$size"
+  local GS_THEME_FILE="/usr/share/gnome-shell/gnome-shell-theme.gresource"
+
+  if [[ ! -f "$GS_THEME_FILE" ]]; then
+    echo "ERROR: '$GS_THEME_FILE' was not found."
+    exit 1
+  fi
+
+  if [[ ! "$(which glib-compile-resources 2> /dev/null)" ]]; then
+    echo "ERROR: 'glib-compile-resources' is required to install the GDM theme."
+    exit 1
+  fi
+
+  echo "Installing GDM theme from '$THEME_DIR/gnome-shell'..."
+  cp -an "$GS_THEME_FILE" "$GS_THEME_FILE~"
+  glib-compile-resources \
+    --sourcedir="$THEME_DIR/gnome-shell" \
+    --target="$GS_THEME_FILE" \
+    "$THEME_DIR/gnome-shell/gnome-shell-theme.gresource.xml"
 }
 
 while [[ "$#" -gt 0 ]]; do
@@ -72,6 +107,10 @@ while [[ "$#" -gt 0 ]]; do
     -n|--name)
       _name="$2"
       shift 2
+      ;;
+    -g|--gdm)
+      gdm='true'
+      shift
       ;;
     -s|--size)
       shift
@@ -116,6 +155,10 @@ fi
 for size in "${sizes[@]:-${SIZE_VARIANTS[@]}}"; do
   install "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "$size"
 done
+
+if [[ "${gdm:-}" == 'true' ]]; then
+  install_gdm "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "${sizes[0]:-}"
+fi
 
 echo
 echo "Done."
