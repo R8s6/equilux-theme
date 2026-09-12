@@ -1,12 +1,11 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
 Name=Equilux
-Comment=A Material Design theme with Equilux color-palette
+Comment=Equilux theme for Xfce 4
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
 GtkTheme=Equilux
-MetacityTheme=Equilux
 IconTheme=Adwaita
 CursorTheme=Adwaita
 CursorSize=24
