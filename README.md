@@ -87,15 +87,26 @@ Seamless textures from various sources and authors, converted to low contrast/br
 
 - [Smyck terminal](https://github.com/DarthWound/smyck-gnome-terminal): a script to use SMYCK palette in GNOME Terminal
 
-- [Equilux-Firefox](https://github.com/cj-sv/equilux-firefox): an Equilux color scheme for Firefox userContent.css and userChrome.css.
+- [Equilux for Firefox](https://addons.mozilla.org/en-US/firefox/addon/equilux/): a browser theme matching Equilux's neutral grays. Install it from Firefox Add-ons.
+
+  For [Reader View](https://support.mozilla.org/en-US/kb/firefox-reader-view-clutter-free-web-pages), enter Reader View on a supported page, then choose **Theme (paintbrush) → Custom**. Set **Background** to `#323232` and **Text** to `#bebebe`; use `#1e1e1e` for a darker background.
 
 - [Tint2](https://gist.github.com/meskarune/329826937aea0effdbfa9f3bdc7e7989): tint2 panel theme that matches Equilux.
 
+- [Dark Reader](https://github.com/darkreader/darkreader): applies custom dark colors to web pages.
+
+  Select **Dark** and **Dynamic** mode, with brightness and contrast at **100%**, sepia and grayscale at **0%**. Open **Theme → See all options → Colors**. If those controls are missing, choose **Dev tools → Preview new design** first.
+
+  | Setting | Equilux (default) | Darker |
+  | --- | --- | --- |
+  | Background | `#323232` | `#1e1e1e` |
+  | Text | `#bebebe` | `#bebebe` |
+  | Scrollbar | Browser default | `#444444` |
+  | Selection | `#5a5a5a` | `#5a5a5a` |
+
+  Apply these settings globally and enable Dark Reader for the desired sites. Disable **Settings → Detect dark theme** to also style sites with their own dark themes. Individual page elements may still use different shades.
+
 - TBD: add the style settings consistent with the Equilux Palette for apps like Vivaldi, Tilix, RubyMine, SmartGit, DeepGit, ...
-
-### Browser Extensions
-
-- [Dark Reader](https://github.com/darkreader/darkreader): Chrome and FireFox extension that inverts brightness of web pages and aims to reduce eyestrain while browsing the web.
 
 ## Branches
 
