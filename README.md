@@ -92,7 +92,7 @@ Seamless textures from various sources and authors, converted to low contrast/br
 
 ### Browser Extensions
 
-- [Equilux Theme add-on for Firefox](https://addons.mozilla.org/en-US/firefox/addon/equilux/): a browser theme matching Equilux's neutral grays. Install it from Firefox Add-ons.
+- [Equilux Theme for Firefox](https://addons.mozilla.org/addon/equilux/): a theme for Firefox.
 
   For [Reader View](https://support.mozilla.org/en-US/kb/firefox-reader-view-clutter-free-web-pages), enter Reader View on a supported page, then choose **Theme (paintbrush) → Custom**. Set **Background** to `#323232` and **Text** to `#bebebe`; use `#1e1e1e` for a darker background.
 
